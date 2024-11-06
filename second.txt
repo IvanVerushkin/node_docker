@@ -1,0 +1,91 @@
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>node -v  
+v22.8.0
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker pull -t node:22.8
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview 
+unknown shorthand flag: 't' in -t
+See 'docker pull --help'.
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker pull node:22.8    
+22.8: Pulling from library/node
+8cd46d290033: Download complete
+b3d4302e0b06: Download complete
+2e66a70da0be: Download complete
+2e6afa3f266c: Download complete
+4326bccabba6: Download complete
+45000ff9cd9c: Download complete
+1c8ff076d818: Download complete
+3156cb54c99e: Download complete
+Digest: sha256:bd00c03095f7586432805dbf7989be10361d27987f93de904b1fc003949a4794
+Status: Downloaded newer image for node:22.8
+docker.io/library/node:22.8
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview node:22.8
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+node         22.8      bd00c03095f7   8 weeks ago   1.6GB
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker run --name mynode -it --rm -e NAME=Ivan SURNAME=Verushkin node:22.8
+docker: invalid reference format: repository name (library/SURNAME=Verushkin) must be lowercase.
+See 'docker run --help'.
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker run --name mynode -it --rm -e NAME=ivan SURNAME=verushkin node:22.8
+docker: invalid reference format: repository name (library/SURNAME=verushkin) must be lowercase.
+See 'docker run --help'.
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker run --name mynode -it --rm -e NAME=ivan -e SURNAME=verushkin node:22.8 
+Welcome to Node.js v22.8.0.
+Type ".help" for more information.
+> console.log(name)
+Uncaught ReferenceError: name is not defined
+> console.log("name")
+name
+undefined
+> process.env.NAME
+'ivan'
+> console.log("Привет, ")+process.env.NAME+" "+process.env.SURNAME
+Привет, 
+'undefinedivan verushkin'
+> console.log("Привет, ")process.env.NAME+" "+process.env.SURNAME
+console.log("Привет, ")process.env.NAME+" "+process.env.SURNAME
+                       ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'process'
+> console.log("Привет, "+process.env.NAME+" "+process.env.SURNAME)
+Привет, ivan verushkin
+undefined
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+node         22.8      bd00c03095f7   8 weeks ago   1.6GB
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker ps -a 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker stop node:22:8
+Error response from daemon: No such container: node:22:8
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker stop node   
+Error response from daemon: No such container: node
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker rmi node:22:8
+Error response from daemon: invalid reference format
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker rmi node:22.8 
+Untagged: node:22.8
+Deleted: sha256:bd00c03095f7586432805dbf7989be10361d27987f93de904b1fc003949a4794
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>

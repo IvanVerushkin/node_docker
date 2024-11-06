@@ -1,0 +1,72 @@
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker run --name pinger --rm -t busybox ping -c 7 netology.ru
+PING netology.ru (188.114.98.225): 56 data bytes
+64 bytes from 188.114.98.225: seq=0 ttl=63 time=25.374 ms
+64 bytes from 188.114.98.225: seq=1 ttl=63 time=21.131 ms
+64 bytes from 188.114.98.225: seq=2 ttl=63 time=21.104 ms
+64 bytes from 188.114.98.225: seq=3 ttl=63 time=21.669 ms
+64 bytes from 188.114.98.225: seq=4 ttl=63 time=245.215 ms
+64 bytes from 188.114.98.225: seq=5 ttl=63 time=23.194 ms
+64 bytes from 188.114.98.225: seq=6 ttl=63 time=24.463 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 21.104/54.592/245.215 ms
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker logs pinger
+Error response from daemon: No such container: pinger
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker run --name pinger -t busybox ping -c 7 netology.ru      
+PING netology.ru (188.114.98.225): 56 data bytes
+64 bytes from 188.114.98.225: seq=0 ttl=63 time=20.266 ms
+64 bytes from 188.114.98.225: seq=1 ttl=63 time=20.801 ms
+64 bytes from 188.114.98.225: seq=2 ttl=63 time=23.588 ms
+64 bytes from 188.114.98.225: seq=3 ttl=63 time=21.239 ms
+64 bytes from 188.114.98.225: seq=4 ttl=63 time=21.648 ms
+64 bytes from 188.114.98.225: seq=5 ttl=63 time=24.177 ms
+64 bytes from 188.114.98.225: seq=6 ttl=63 time=27.281 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 20.266/22.714/27.281 ms
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker logs pinger
+PING netology.ru (188.114.98.225): 56 data bytes
+64 bytes from 188.114.98.225: seq=0 ttl=63 time=20.266 ms
+64 bytes from 188.114.98.225: seq=1 ttl=63 time=20.801 ms
+64 bytes from 188.114.98.225: seq=2 ttl=63 time=23.588 ms
+64 bytes from 188.114.98.225: seq=3 ttl=63 time=21.239 ms
+64 bytes from 188.114.98.225: seq=4 ttl=63 time=21.648 ms
+64 bytes from 188.114.98.225: seq=5 ttl=63 time=24.177 ms
+64 bytes from 188.114.98.225: seq=6 ttl=63 time=27.281 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 20.266/22.714/27.281 ms
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                      PORTS     NAMES
+5ee745aace21   busybox   "ping -c 7 netology.…"   About a minute ago   Exited (0) 53 seconds ago             pinger
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker logs pinger
+PING netology.ru (188.114.98.225): 56 data bytes
+64 bytes from 188.114.98.225: seq=0 ttl=63 time=20.266 ms
+64 bytes from 188.114.98.225: seq=1 ttl=63 time=20.801 ms
+64 bytes from 188.114.98.225: seq=2 ttl=63 time=23.588 ms
+64 bytes from 188.114.98.225: seq=3 ttl=63 time=21.239 ms
+64 bytes from 188.114.98.225: seq=4 ttl=63 time=21.648 ms
+64 bytes from 188.114.98.225: seq=5 ttl=63 time=24.177 ms
+64 bytes from 188.114.98.225: seq=6 ttl=63 time=27.281 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 20.266/22.714/27.281 ms
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker container rm pinger
+pinger
+
+C:\Users\DELL\Desktop\learn\NodeJS\node_docker>docker rmi busybox
+Untagged: busybox:latest
+Deleted: sha256:768e5c6f5cb6db0794eec98dc7a967f40631746c32232b78a3105fb946f3ab83
